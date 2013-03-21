@@ -24,7 +24,7 @@ public class GameScreen implements Screen, InputProcessor{
 	 * This is the game loop.
 	 */
 	public void render(float delta) {
-		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);//clear screen
+		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		renderer.render();//and render
 		w.update();
 	}
@@ -39,7 +39,8 @@ public class GameScreen implements Screen, InputProcessor{
 	public void resize(int width, int height) {
 		this.width = width;
 		this.height = height;
-		w.setScale(width, height);
+		w.BOX_TO_WORLD_WIDTH = width / renderer.getCam().viewportHeight;
+		w.BOX_TO_WORLD_HEIGHT = height / renderer.getCam().viewportHeight;
 		
 	}
 
@@ -98,10 +99,14 @@ public class GameScreen implements Screen, InputProcessor{
 	@Override
 	public boolean touchDown(int x, int y, int pointer, int button) {
 		boolean firstFingerTouching = Gdx.input.isTouched(0);
-        //w.addDynamicCircle(x / w.BOX_TO_WORLD_WIDTH, (height - y) / w.BOX_TO_WORLD_HEIGHT, 5f);
-		w.checkSlope(x / w.BOX_TO_WORLD_WIDTH, (height - y) / w.BOX_TO_WORLD_HEIGHT);
-		w.checkBall(x / w.BOX_TO_WORLD_WIDTH, (height - y) / w.BOX_TO_WORLD_HEIGHT);//hacky function to apply force to the ball, should be removed eventually
-		System.out.println("X: " + (x / w.BOX_TO_WORLD_WIDTH) +" Y: " + (height - y) / w.BOX_TO_WORLD_HEIGHT);
+		
+		float xpos = x / w.BOX_TO_WORLD_WIDTH;
+		float ypos = (height - y) / w.BOX_TO_WORLD_HEIGHT;
+		
+		xpos += (renderer.getCam().position.x - (renderer.getCam().viewportWidth / 2));
+		ypos += (renderer.getCam().position.y - (renderer.getCam().viewportHeight / 2));
+		
+		w.checkBall(xpos, ypos);
 		return true;
 	}
 
@@ -112,9 +117,27 @@ public class GameScreen implements Screen, InputProcessor{
 	}
 
 	@Override
-
+    /*
+	   The first part of this function is a little weird so I think it's 
+	   worth explaining.
+	   
+	   The x and y parameters that are received = the pixel coordinates.
+	   To convert to the box2d coordinates(meters), they must be divided by the 
+	   number of pixels per meter(which has been set elsewhere).
+	   
+	   Since the converted coordinates are only relative to the current screen
+	   they have to be added to the absolute box2d world coordinates that are 
+	   displayed at (0,0) on the screen.   
+     */
 	public boolean touchDragged(int x, int y, int pointer) {
-		w.checkSlope(x / w.BOX_TO_WORLD_WIDTH, (height - y) / w.BOX_TO_WORLD_HEIGHT);//checks to see if the pointer is trying to drag the slope
+		float xpos = x / w.BOX_TO_WORLD_WIDTH;
+		float ypos = (height - y) / w.BOX_TO_WORLD_HEIGHT;
+		
+		xpos += (renderer.getCam().position.x - (renderer.getCam().viewportWidth / 2));
+		ypos += (renderer.getCam().position.y - (renderer.getCam().viewportHeight / 2));
+		
+		//w.checkBall(xpos, ypos);
+		w.checkSlope(xpos, ypos);//checks to see if the pointer is trying to drag the slope
 		return false;
 	}
 

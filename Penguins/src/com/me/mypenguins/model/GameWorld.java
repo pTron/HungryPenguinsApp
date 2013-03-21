@@ -12,12 +12,14 @@ import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.Shape.Type;
 import com.badlogic.gdx.physics.box2d.World;
 
 public class GameWorld {
 	private World w;
 	private Body slopeBody;
 	private Body circleBody;
+	private Fixture circleFixture;
 	private Fixture slopeFixture;
 	private Vector2  slopeBodyPos;
 	private Vector2 slopeBodyDim;//width and height of slope
@@ -28,10 +30,10 @@ public class GameWorld {
 	List<Body> bodies;//keeps track of the world's bodies
 		
 		public GameWorld(){
-		w = new World(new Vector2(0, -50), true);//creates a box2d world with the provided gravity acceleration
-        initializeTheSlope(20f, 60f, 10f, 15f);
-		circleBody = addDynamicCircle(6f, 10f, 6f);// x position, y position, radius
-		addStaticRectangle(0.0f, 0.0f, 100f, 10f);// x position, y position, width, height
+		w = new World(new Vector2(0, -.50f), true);//creates a box2d world with the provided gravity acceleration
+        initializeTheSlope(.20f, .40f, .10f, .15f);
+		circleBody = addDynamicCircle(.06f, .10f, .066f);// x position, y position, radius
+		addStaticRectangle(-.50f, 0.0f, 100f, .10f);// x position, y position, width, height
 		//addKinematicRectangle(0.0f, 45f, 30, 5, new Vector2(10f, 0.0f));//x pos, y pos, width, height, velocity
 
 		//addDynamicCircle(20f, 30f, 3f);
@@ -60,15 +62,30 @@ public class GameWorld {
 		slope.dispose();
 	}
 	public void checkSlope(float xpos, float ypos){
-		if(xpos >= ((slopeBodyPos.x + slopeBodyDim.x) - 2) && xpos <=((slopeBodyPos.x + slopeBodyDim.x)) +2) {
-			changeTheSlopeTo(slopeBodyDim.x, ypos - slopeBodyPos.y);
-			System.out.println("Should be changing.");
+		if(ypos > slopeBodyPos.y 
+		   && xpos >= ((slopeBodyPos.x + slopeBodyDim.x) - 2) 
+		   && xpos <=((slopeBodyPos.x + slopeBodyDim.x)) +2) 
+		{	
+	       changeTheSlopeTo(slopeBodyDim.x, ypos - slopeBodyPos.y);
+
 		}
 		
 	}
 	public void checkBall(float xpos, float ypos) {
-		if((xpos>= 4 && xpos <= 8) && (ypos >= 8 && ypos <= 12)){
-			circleBody.applyForceToCenter(new Vector2(500000000, 0));//world needs to be smaller so we don't have to apply such large forces
+		float radius = 0;
+		ArrayList<Fixture> fixtures = circleBody.getFixtureList();
+		for(Fixture a : fixtures){
+			if(a.getShape().getType() == Type.Circle);
+			{
+				radius = a.getShape().getRadius();
+			}
+		}
+		 Vector2 b = circleBody.getLocalPoint(new Vector2(xpos, ypos));
+		if(radius > 0){
+			if(b.x <= radius && b.y <= radius){
+				
+				circleBody.applyForceToCenter(new Vector2(10, 0));//world needs to be smaller so we don't have to apply such large forces
+			}
 		}
 		
 	}
@@ -87,11 +104,11 @@ public class GameWorld {
 		//set up fixture definition 
 		FixtureDef fixtureDef = new FixtureDef();
 		fixtureDef.shape = circle;
-		fixtureDef.density = 0.5f;
+		fixtureDef.density = 6f;
 		fixtureDef.friction = 0.4f;
-		fixtureDef.restitution = 0.0f;
+		fixtureDef.restitution = 0f;
 		
-		Fixture fixture = body.createFixture(fixtureDef);
+		circleFixture = body.createFixture(fixtureDef);
 		circle.dispose();
 		return body;
 		
@@ -125,12 +142,13 @@ public class GameWorld {
 		
 	}
 
-	public void setScale(float width, float height){
-		BOX_TO_WORLD_WIDTH = width / 100;
-		BOX_TO_WORLD_HEIGHT = height / 100;
-	}
+
 	public World getWorld(){
 		return w;
+	}
+	
+	public Body getPenguin(){
+		return circleBody;
 	}
     public void update()
     {

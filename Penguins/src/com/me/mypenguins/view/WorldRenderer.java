@@ -15,15 +15,21 @@ public class WorldRenderer {
 		this.w = w;
 		this.debug = debug;
 		debugRenderer = new Box2DDebugRenderer();
-		cam = new OrthographicCamera(100, 100);//eventually change the arguments to be based on gameworld's dimensions maybe
-		cam.position.set(50, 50, 0);//would need to be changed too
+		cam = new OrthographicCamera(1, 1);//eventually change the arguments to be based on gameworld's dimensions maybe
+		cam.position.set(.5f, .5f, 0);//would need to be changed too
 		cam.update();
 		
 	}
 	
 	public void render(){
 		if(debug && w != null){
+			cam.position.set(w.getPenguin().getPosition().x, .5f ,0);
+			cam.update();
 			debugRenderer.render(w.getWorld(), cam.combined);
 		}
+	}
+	
+	public OrthographicCamera getCam(){
+		return cam;
 	}
 }
