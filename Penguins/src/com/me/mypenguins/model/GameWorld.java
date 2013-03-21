@@ -25,18 +25,22 @@ public class GameWorld {
 	private Vector2 slopeBodyDim;//width and height of slope
 	public float BOX_TO_WORLD_WIDTH;//pixels per meter
 	public float BOX_TO_WORLD_HEIGHT;
-	
+	public boolean penguinClicked = false;
 	
 	List<Body> bodies;//keeps track of the world's bodies
 		
 		public GameWorld(){
 		w = new World(new Vector2(0, -.50f), true);//creates a box2d world with the provided gravity acceleration
         initializeTheSlope(.20f, .40f, .10f, .15f);
-		circleBody = addDynamicCircle(.06f, .10f, .066f);// x position, y position, radius
-		addStaticRectangle(-.50f, 0.0f, 100f, .10f);// x position, y position, width, height
+		circleBody = addDynamicCircle(.06f, .10f, .04f);// x position, y position, radius
+		addStaticRectangle(0f, 0.0f, 100f, .10f);// x position, y position, half width,  half height
+		
+		
+		addStaticRectangle(3f, .2f, .01f, .10f);
+		addStaticRectangle(3.24f, .2f, .01f, .10f);
+		
 		//addKinematicRectangle(0.0f, 45f, 30, 5, new Vector2(10f, 0.0f));//x pos, y pos, width, height, velocity
 
-		//addDynamicCircle(20f, 30f, 3f);
 	}
 	
 	private void initializeTheSlope(float xpos1, float xpos2, float ypos1, float ypos2) {
@@ -83,8 +87,8 @@ public class GameWorld {
 		 Vector2 b = circleBody.getLocalPoint(new Vector2(xpos, ypos));
 		if(radius > 0){
 			if(b.x <= radius && b.y <= radius){
-				
-				circleBody.applyForceToCenter(new Vector2(10, 0));//world needs to be smaller so we don't have to apply such large forces
+				penguinClicked = true;
+				circleBody.applyForceToCenter(new Vector2(3.5f, 0));
 			}
 		}
 		

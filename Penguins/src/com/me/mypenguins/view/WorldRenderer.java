@@ -8,15 +8,16 @@ public class WorldRenderer {
 	private GameWorld w;
 	private boolean debug;
 	private Box2DDebugRenderer debugRenderer;
-
+    public final float CAMERA_VIEW_WIDTH = 1f;
+    public final float CAMERA_VIEW_HEIGHT = 1f;
 	private OrthographicCamera cam;
 
 	public WorldRenderer(GameWorld w, boolean debug){
 		this.w = w;
 		this.debug = debug;
 		debugRenderer = new Box2DDebugRenderer();
-		cam = new OrthographicCamera(1, 1);//eventually change the arguments to be based on gameworld's dimensions maybe
-		cam.position.set(.5f, .5f, 0);//would need to be changed too
+		cam = new OrthographicCamera(CAMERA_VIEW_WIDTH, CAMERA_VIEW_HEIGHT);
+		cam.position.set(CAMERA_VIEW_WIDTH / 2, CAMERA_VIEW_HEIGHT / 2, 0);
 		cam.update();
 		
 	}

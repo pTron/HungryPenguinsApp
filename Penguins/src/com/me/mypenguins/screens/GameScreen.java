@@ -103,10 +103,13 @@ public class GameScreen implements Screen, InputProcessor{
 		float xpos = x / w.BOX_TO_WORLD_WIDTH;
 		float ypos = (height - y) / w.BOX_TO_WORLD_HEIGHT;
 		
-		xpos += (renderer.getCam().position.x - (renderer.getCam().viewportWidth / 2));
-		ypos += (renderer.getCam().position.y - (renderer.getCam().viewportHeight / 2));
-		
+		xpos += (renderer.getCam().position.x - (renderer.CAMERA_VIEW_WIDTH / 2));
+		ypos += (renderer.getCam().position.y - (renderer.CAMERA_VIEW_HEIGHT / 2));
+
 		w.checkBall(xpos, ypos);
+		if(!w.penguinClicked){
+			   w.checkSlope(xpos, ypos);//checks to see if the pointer is trying to drag the slope
+			}
 		return true;
 	}
 
@@ -136,8 +139,9 @@ public class GameScreen implements Screen, InputProcessor{
 		xpos += (renderer.getCam().position.x - (renderer.getCam().viewportWidth / 2));
 		ypos += (renderer.getCam().position.y - (renderer.getCam().viewportHeight / 2));
 		
-		//w.checkBall(xpos, ypos);
-		w.checkSlope(xpos, ypos);//checks to see if the pointer is trying to drag the slope
+		if(!w.penguinClicked){
+		   w.checkSlope(xpos, ypos);//checks to see if the pointer is trying to drag the slope
+		}
 		return false;
 	}
 
