@@ -71,7 +71,7 @@ public class GameScreen implements Screen, InputProcessor{
 
 		lastRender = now;
 		renderer.render();//and render
-		//w.update();
+		w.update();
 	}
 
 	@Override
@@ -95,7 +95,7 @@ public class GameScreen implements Screen, InputProcessor{
 	*/
 	public void show() {
 		//w = new GameWorld();
-		renderer = new WorldRenderer(w, true);
+
 		
 		width = Gdx.graphics.getWidth();
 		height = Gdx.graphics.getHeight();
@@ -113,7 +113,7 @@ public class GameScreen implements Screen, InputProcessor{
 		tiledMapHelper.prepareCamera(width, height);
 
 		w = new GameWorld(new Vector2(0.0f, -10.0f), true);
-
+		renderer = new WorldRenderer(w, true);
 		tiledMapHelper.loadCollisions("data/collisions.txt", w,
 				PIXELS_PER_METER);
 	    
