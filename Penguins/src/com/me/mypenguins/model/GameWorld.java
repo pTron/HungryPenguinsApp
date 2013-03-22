@@ -42,6 +42,20 @@ public class GameWorld {
 		//addKinematicRectangle(0.0f, 45f, 30, 5, new Vector2(10f, 0.0f));//x pos, y pos, width, height, velocity
 
 	}
+		
+		public GameWorld(Vector2 v2, boolean bool){
+			w = new World(v2, bool);//creates a box2d world with the provided gravity acceleration
+			initializeTheSlope(.20f, .40f, .10f, .15f);
+			circleBody = addDynamicCircle(.06f, .10f, .04f);// x position, y position, radius
+			addStaticRectangle(0f, 0.0f, 100f, .10f);// x position, y position, half width,  half height
+
+
+			addStaticRectangle(3f, .2f, .01f, .10f);
+			addStaticRectangle(3.24f, .2f, .01f, .10f);
+
+			//addKinematicRectangle(0.0f, 45f, 30, 5, new Vector2(10f, 0.0f));//x pos, y pos, width, height, velocity
+
+		}
 	
 	private void initializeTheSlope(float xpos1, float xpos2, float ypos1, float ypos2) {
 		BodyDef bodydef = new BodyDef();
