@@ -84,6 +84,9 @@ public class GameScreen implements Screen, InputProcessor{
 	public void resize(int width, int height) {
 		this.width = width;
 		this.height = height;
+		System.out.println( width + " x " + height);
+		tiledMapHelper.prepareCamera(width, height);
+		renderer.resizeCam(width, height);
 		w.BOX_TO_WORLD_WIDTH = width / renderer.getCam().viewportHeight;
 		w.BOX_TO_WORLD_HEIGHT = height / renderer.getCam().viewportHeight;
 		
@@ -171,8 +174,8 @@ public class GameScreen implements Screen, InputProcessor{
 		float xpos = x / w.BOX_TO_WORLD_WIDTH;
 		float ypos = (height - y) / w.BOX_TO_WORLD_HEIGHT;
 		
-		xpos += (renderer.getCam().position.x - (renderer.CAMERA_VIEW_WIDTH / 2));
-		ypos += (renderer.getCam().position.y - (renderer.CAMERA_VIEW_HEIGHT / 2));
+		xpos += (renderer.getCam().position.x - (renderer.getCam().viewportWidth / 2));
+		ypos += (renderer.getCam().position.y - (renderer.getCam().viewportHeight / 2));
 
 		w.checkBall(xpos, ypos);
 		if(!w.penguinClicked){

@@ -30,30 +30,30 @@ public class GameWorld {
 	List<Body> bodies;//keeps track of the world's bodies
 		
 		public GameWorld(){
-		w = new World(new Vector2(0, -.50f), true);//creates a box2d world with the provided gravity acceleration
+		w = new World(new Vector2(0, -.50f), true);
         initializeTheSlope(.20f, .40f, .10f, .15f);
-		circleBody = addDynamicCircle(.06f, .10f, .04f);// x position, y position, radius
-		addStaticRectangle(0f, 0.0f, 100f, .10f);// x position, y position, half width,  half height
+		circleBody = addDynamicCircle(.06f, .10f, .04f);
+		addStaticRectangle(0f, 0.0f, 100f, .10f);
 		
 		
 		addStaticRectangle(3f, .2f, .01f, .10f);
 		addStaticRectangle(3.24f, .2f, .01f, .10f);
 		
-		//addKinematicRectangle(0.0f, 45f, 30, 5, new Vector2(10f, 0.0f));//x pos, y pos, width, height, velocity
+		//addKinematicRectangle(0.0f, 45f, 30, 5, new Vector2(10f, 0.0f));
 
 	}
 		
 		public GameWorld(Vector2 v2, boolean bool){
-			w = new World(v2, bool);//creates a box2d world with the provided gravity acceleration
+			w = new World(v2, bool);
 			//initializeTheSlope(.20f, .40f, .10f, .15f);
-			circleBody = addDynamicCircle(.06f, .10f, .04f);// x position, y position, radius
-			//addStaticRectangle(0f, 0.0f, 100f, .10f);// x position, y position, half width,  half height
+			//circleBody = addDynamicCircle(.06f, .10f, .04f);
+			//addStaticRectangle(0f, 0.0f, 100f, .10f);
 
 
 			//addStaticRectangle(3f, .2f, .01f, .10f);
 			//addStaticRectangle(3.24f, .2f, .01f, .10f);
 
-			//addKinematicRectangle(0.0f, 45f, 30, 5, new Vector2(10f, 0.0f));//x pos, y pos, width, height, velocity
+			//addKinematicRectangle(0.0f, 45f, 30, 5, new Vector2(10f, 0.0f));
 
 		}
 	
@@ -80,6 +80,7 @@ public class GameWorld {
 		slope.dispose();
 	}
 	public void checkSlope(float xpos, float ypos){
+		if(slopeBody != null){
 		if(ypos > slopeBodyPos.y 
 		   && xpos >= ((slopeBodyPos.x + slopeBodyDim.x) - 2) 
 		   && xpos <=((slopeBodyPos.x + slopeBodyDim.x)) +2) 
@@ -87,10 +88,12 @@ public class GameWorld {
 	       changeTheSlopeTo(slopeBodyDim.x, ypos - slopeBodyPos.y);
 
 		}
-		
+		}
 	}
 	public void checkBall(float xpos, float ypos) {
 		float radius = 0;
+		if(circleBody != null)
+		{
 		ArrayList<Fixture> fixtures = circleBody.getFixtureList();
 		for(Fixture a : fixtures){
 			if(a.getShape().getType() == Type.Circle);
@@ -105,7 +108,7 @@ public class GameWorld {
 				circleBody.applyForceToCenter(new Vector2(3.5f, 0));
 			}
 		}
-		
+		}
 	}
 	public Body addDynamicCircle(float posx, float posy, float radius){
 		
