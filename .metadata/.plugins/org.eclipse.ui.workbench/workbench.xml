@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="12" version="2.0">
 <workbenchAdvisor/>
+<<<<<<< HEAD
 <window height="774" maximized="true" width="1225" x="0" y="22">
 <fastViewData fastViewLocation="1024"/>
 <intro standby="true"/>
+=======
+<window height="774" width="1024" x="139" y="22">
+<fastViewData fastViewLocation="1024"/>
+>>>>>>> master
 <perspectiveBar>
 <itemSize x="250"/>
 </perspectiveBar>
@@ -17,6 +22,7 @@
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="100" y="22"/>
 <coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="62" y="22"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="62" y="22"/>
+<<<<<<< HEAD
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -28,14 +34,47 @@
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
 <page aggregateWorkingSetId="Aggregate for window 1364300682074" focus="true" label="Workspace - Java">
+=======
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="98" y="22"/>
+<coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="178" y="22"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="152" y="22"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1363907294963" focus="true" label="Workspace - Java">
+>>>>>>> master
 <editors>
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
+<<<<<<< HEAD
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
+=======
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GameScreen.java" partName="GameScreen.java" path="/Users/superboringturtle/HungryPenguinsApp/Penguins/src/com/me/mypenguins/screens/GameScreen.java" title="GameScreen.java" tooltip="Penguins/src/com/me/mypenguins/screens/GameScreen.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Penguins/src/com/me/mypenguins/screens/GameScreen.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2301" selectionTopPixel="368"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WorldRenderer.java" partName="WorldRenderer.java" path="/Users/superboringturtle/HungryPenguinsApp/Penguins/src/com/me/mypenguins/view/WorldRenderer.java" title="WorldRenderer.java" tooltip="Penguins/src/com/me/mypenguins/view/WorldRenderer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Penguins/src/com/me/mypenguins/view/WorldRenderer.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="39"/>
+</editor>
+>>>>>>> master
 </editors>
 <views>
 <view id="com.android.ide.eclipse.ddms.views.DeviceView" partName="Devices"/>
@@ -49,6 +88,12 @@
 <view id="com.android.ide.eclipse.ddms.views.NetworkStatsView" partName="Network Statistics"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<<<<<<< HEAD
+=======
+<expanded>
+<category IMemento.internal.id="Warnings (15 items)"/>
+</expanded>
+>>>>>>> master
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -87,12 +132,15 @@
 </customFilters>
 </viewState>
 </view>
+<<<<<<< HEAD
 <view id="org.eclipse.ui.internal.introview" partName="Android IDE">
 <viewState>
 <presentation currentPage="file:///Applications/adt-bundle-mac-x86_64-20130219/eclipse/plugins/com.android.ide.eclipse.adt.package_21.1.0.2013-2-6-0-46/index.html" restore="true"/>
 <standbyPart/>
 </viewState>
 </view>
+=======
+>>>>>>> master
 <view id="com.android.ide.eclipse.ddms.views.SysInfoView" partName="System Information"/>
 <view id="com.android.ide.eclipse.ddms.views.EmulatorControlView" partName="Emulator Control"/>
 <view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
@@ -243,6 +291,7 @@
 <view id="org.eclipse.jdt.ui.SourceView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
+<<<<<<< HEAD
 <fastViewBars>
 <fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@5c66b06b" orientation="256" selectedTabId="org.eclipse.ui.internal.introview" style="0">
 <fastViews>
@@ -250,6 +299,9 @@
 </fastViews>
 </fastViewBar>
 </fastViewBars>
+=======
+<fastViewBars/>
+>>>>>>> master
 <layout>
 <mainWindow>
 <info folder="true" part="left">
@@ -264,8 +316,13 @@
 </presentation>
 </folder>
 </info>
+<<<<<<< HEAD
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@5c66b06b" ratio="0.75" ratioLeft="762" ratioRight="254" relationship="2" relative="left">
 <folder appearance="2" expanded="0">
+=======
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@55264c84" ratio="0.75" ratioLeft="762" ratioRight="254" relationship="2" relative="left">
+<folder appearance="2" expanded="2">
+>>>>>>> master
 <page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
@@ -306,20 +363,64 @@
 </perspective>
 </perspectives>
 <workingSets/>
+<<<<<<< HEAD
 <navigationHistory/>
+=======
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Penguins/src/com/me/mypenguins/screens/GameScreen.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Penguins/src/com/me/mypenguins/view/WorldRenderer.java"/>
+</editors>
+<item historyLabel="GameScreen.java" index="0">
+<position info="not_deleted" x="2301" y="0"/>
+</item>
+<item historyLabel="WorldRenderer.java" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="GameScreen.java" index="0">
+<position info="not_deleted" x="2301" y="0"/>
+</item>
+<item historyLabel="WorldRenderer.java" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="GameScreen.java" index="0">
+<position info="not_deleted" x="2301" y="0"/>
+</item>
+</navigationHistory>
+>>>>>>> master
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<<<<<<< HEAD
+=======
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+>>>>>>> master
 <trimArea IMemento.internal.id="1024">
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.HeapStatus"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<<<<<<< HEAD
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@5c66b06b"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList/>
+=======
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WorldRenderer.java" tooltip="Penguins/src/com/me/mypenguins/view/WorldRenderer.java">
+<persistable path="/Penguins/src/com/me/mypenguins/view/WorldRenderer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GameScreen.java" tooltip="Penguins/src/com/me/mypenguins/screens/GameScreen.java">
+<persistable path="/Penguins/src/com/me/mypenguins/screens/GameScreen.java"/>
+</file>
+</mruList>
+>>>>>>> master
 </workbench>
