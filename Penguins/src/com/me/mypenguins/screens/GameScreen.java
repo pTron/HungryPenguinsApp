@@ -4,12 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
-<<<<<<< HEAD
-=======
+
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
->>>>>>> master
+
 import com.me.mypenguins.model.GameWorld;
 import com.me.mypenguins.view.WorldRenderer;
 import com.me.mypenguins.screens.TiledMapHelper;
@@ -169,13 +168,13 @@ public class GameScreen implements Screen, InputProcessor{
 
 	@Override
 	public boolean touchDown(int x, int y, int pointer, int button) {
-<<<<<<< HEAD
+
 		//boolean firstFingerTouching = Gdx.input.isTouched(0);
         //w.addDynamicCircle(x / w.BOX_TO_WORLD_WIDTH, (height - y) / w.BOX_TO_WORLD_HEIGHT, 5f);
 		w.checkSlope(x / w.BOX_TO_WORLD_WIDTH, (height - y) / w.BOX_TO_WORLD_HEIGHT);
 		w.checkBall(x / w.BOX_TO_WORLD_WIDTH, (height - y) / w.BOX_TO_WORLD_HEIGHT);//hacky function to apply force to the ball, should be removed eventually
 		System.out.println("X: " + (x / w.BOX_TO_WORLD_WIDTH) +" Y: " + (height - y) / w.BOX_TO_WORLD_HEIGHT);
-=======
+
 		boolean firstFingerTouching = Gdx.input.isTouched(0);
 		
 		float xpos = x / w.BOX_TO_WORLD_WIDTH;
@@ -188,7 +187,7 @@ public class GameScreen implements Screen, InputProcessor{
 		if(!w.penguinClicked){
 			   w.checkSlope(xpos, ypos);//checks to see if the pointer is trying to drag the slope
 			}
->>>>>>> master
+
 		return true;
 	}
 
