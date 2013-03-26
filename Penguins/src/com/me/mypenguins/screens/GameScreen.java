@@ -4,8 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
-import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.World;
 import com.me.mypenguins.model.GameWorld;
 import com.me.mypenguins.view.WorldRenderer;
 
@@ -97,7 +95,7 @@ public class GameScreen implements Screen, InputProcessor{
 
 	@Override
 	public boolean touchDown(int x, int y, int pointer, int button) {
-		boolean firstFingerTouching = Gdx.input.isTouched(0);
+		//boolean firstFingerTouching = Gdx.input.isTouched(0);
         //w.addDynamicCircle(x / w.BOX_TO_WORLD_WIDTH, (height - y) / w.BOX_TO_WORLD_HEIGHT, 5f);
 		w.checkSlope(x / w.BOX_TO_WORLD_WIDTH, (height - y) / w.BOX_TO_WORLD_HEIGHT);
 		w.checkBall(x / w.BOX_TO_WORLD_WIDTH, (height - y) / w.BOX_TO_WORLD_HEIGHT);//hacky function to apply force to the ball, should be removed eventually
