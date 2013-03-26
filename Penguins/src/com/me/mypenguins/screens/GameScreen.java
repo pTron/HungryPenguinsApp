@@ -171,8 +171,8 @@ public class GameScreen implements Screen, InputProcessor{
 	public boolean touchDown(int x, int y, int pointer, int button) {
 		boolean firstFingerTouching = Gdx.input.isTouched(0);
 		
-		float xpos = x / w.BOX_TO_WORLD_WIDTH;
-		float ypos = (height - y) / w.BOX_TO_WORLD_HEIGHT;
+		float xpos = x / renderer.TILE_SCALE_FACTOR;
+		float ypos = (height - y) / renderer.TILE_SCALE_FACTOR;
 		
 		xpos += (renderer.getCam().position.x - (renderer.getCam().viewportWidth / 2));
 		ypos += (renderer.getCam().position.y - (renderer.getCam().viewportHeight / 2));
@@ -204,8 +204,8 @@ public class GameScreen implements Screen, InputProcessor{
 	   displayed at (0,0) on the screen.   
      */
 	public boolean touchDragged(int x, int y, int pointer) {
-		float xpos = x / w.BOX_TO_WORLD_WIDTH;
-		float ypos = (height - y) / w.BOX_TO_WORLD_HEIGHT;
+		float xpos = x / renderer.TILE_SCALE_FACTOR;
+		float ypos = (height - y) /renderer.TILE_SCALE_FACTOR;
 		
 		xpos += (renderer.getCam().position.x - (renderer.getCam().viewportWidth / 2));
 		ypos += (renderer.getCam().position.y - (renderer.getCam().viewportHeight / 2));

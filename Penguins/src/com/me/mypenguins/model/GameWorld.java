@@ -45,8 +45,8 @@ public class GameWorld {
 		
 		public GameWorld(Vector2 v2, boolean bool){
 			w = new World(v2, bool);
-			//initializeTheSlope(.20f, .40f, .10f, .15f);
-			//circleBody = addDynamicCircle(.06f, .10f, .04f);
+			initializeTheSlope(4.0f, 6.4f, 3.75f, 6f);
+			circleBody = addDynamicCircle(1f, 5f, .4f);
 			//addStaticRectangle(0f, 0.0f, 100f, .10f);
 
 
@@ -105,7 +105,7 @@ public class GameWorld {
 		if(radius > 0){
 			if(b.x <= radius && b.y <= radius){
 				penguinClicked = true;
-				circleBody.applyForceToCenter(new Vector2(3.5f, 0));
+				circleBody.applyForceToCenter(new Vector2(5000f, 0));
 			}
 		}
 		}

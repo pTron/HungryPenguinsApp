@@ -10,7 +10,7 @@ public class WorldRenderer {
 	private GameWorld w;
 	private boolean debug;
 	private Box2DDebugRenderer debugRenderer;
-    private float TILE_SCALE_FACTOR = 60f;
+    public float TILE_SCALE_FACTOR = 60f;
 	private OrthographicCamera cam;
 
 	public WorldRenderer(GameWorld w, boolean debug){
@@ -27,6 +27,9 @@ public class WorldRenderer {
 	
 	public void render(){
 		if(debug && w != null){
+			    cam.position.x = w.getPenguin().getPosition().x;
+				cam.update();
+			
 			debugRenderer.render(w.getWorld(), cam.combined);
 		}
 		else
