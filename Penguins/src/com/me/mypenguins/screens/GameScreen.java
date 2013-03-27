@@ -4,6 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
@@ -16,6 +20,7 @@ public class GameScreen implements Screen, InputProcessor{
 	private GameWorld w;
 	private WorldRenderer renderer;
 	private long lastRender;
+	public Sprite rampSprite;
 	private TiledMapHelper tiledMapHelper;
 	//private Box2DDebugRenderer debugRenderer;
 	public static final float PIXELS_PER_METER = 60.0f;
@@ -54,7 +59,6 @@ public class GameScreen implements Screen, InputProcessor{
 			tiledMapHelper.getCamera().position.y = tiledMapHelper.getHeight()
 					- Gdx.graphics.getHeight() / 2;
 		}
-
 		tiledMapHelper.getCamera().update();
 		tiledMapHelper.render();
 

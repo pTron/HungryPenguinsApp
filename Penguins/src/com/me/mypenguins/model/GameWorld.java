@@ -3,7 +3,12 @@ package com.me.mypenguins.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -25,19 +30,20 @@ public class GameWorld {
 	private Vector2 slopeBodyDim;//width and height of slope
 	public float BOX_TO_WORLD_WIDTH;//pixels per meter
 	public float BOX_TO_WORLD_HEIGHT;
+	public Sprite rampSprite;
 	public boolean penguinClicked = false;
 	
 	List<Body> bodies;//keeps track of the world's bodies
 		
 		public GameWorld(){
 		w = new World(new Vector2(0, -.50f), true);
-        initializeTheSlope(.20f, .40f, .10f, .15f);
-		circleBody = addDynamicCircle(.06f, .10f, .04f);
-		addStaticRectangle(0f, 0.0f, 100f, .10f);
+		initializeTheSlope(4.20f, 4.40f, 3.70f, 3.75f);
+		//circleBody = addDynamicCircle(.06f, .10f, .04f);
+		//addStaticRectangle(0f, 0.0f, 100f, .10f);
 		
 		
-		addStaticRectangle(3f, .2f, .01f, .10f);
-		addStaticRectangle(3.24f, .2f, .01f, .10f);
+		//addStaticRectangle(3f, .2f, .01f, .10f);
+		//addStaticRectangle(3.24f, .2f, .01f, .10f);
 		
 		//addKinematicRectangle(0.0f, 45f, 30, 5, new Vector2(10f, 0.0f));
 
@@ -70,15 +76,18 @@ public class GameWorld {
 
 		Vector2 vertices[] = new Vector2[3];
 		vertices[0] = new Vector2(0, 0);
+
 		vertices[1] = new Vector2(width * 11, 0);
 		vertices[2] = new Vector2(width * 11, height);
+
 		PolygonShape slope = new PolygonShape();
 		slope.set(vertices);
 		if(slopeFixture != null)
 			slopeBody.destroyFixture(slopeFixture);
-		slopeFixture = slopeBody.createFixture(slope, 0);
+		slopeFixture = slopeBody.createFixture(slope, 10);
 		slope.dispose();
 	}
+	
 	public void checkSlope(float xpos, float ypos){
 		if(slopeBody != null){
 		if(ypos > slopeBodyPos.y 
