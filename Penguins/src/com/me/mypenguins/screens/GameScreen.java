@@ -35,6 +35,8 @@ public class GameScreen implements Screen, InputProcessor{
 		//world.getWorld().step(Gdx.app.getGraphics().getDeltaTime(), 3, 3);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		Gdx.gl.glClearColor(0, 0.5f, 0.9f, 0);
+		tiledMapHelper.getCamera().position.x = PIXELS_PER_METER * w.getPenguin().getPosition().x;
+		
 		if (tiledMapHelper.getCamera().position.x < Gdx.graphics.getWidth() / 2) {
 			tiledMapHelper.getCamera().position.x = Gdx.graphics.getWidth() / 2;
 		}
@@ -70,7 +72,7 @@ public class GameScreen implements Screen, InputProcessor{
 		}
 
 		lastRender = now;
-		renderer.render();//and render
+		renderer.render(tiledMapHelper.getWidth(), tiledMapHelper.getHeight());//and render
 		w.update();
 	}
 
@@ -114,7 +116,7 @@ public class GameScreen implements Screen, InputProcessor{
 		tiledMapHelper.loadMap("data/world/level1/level.tmx");
 
 		tiledMapHelper.prepareCamera(width, height);
-
+        
 		w = new GameWorld(new Vector2(0.0f, -10.0f), true);
 		renderer = new WorldRenderer(w, true);
 		tiledMapHelper.loadCollisions("data/collisions.txt", w,

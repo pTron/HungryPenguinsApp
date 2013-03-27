@@ -45,7 +45,7 @@ public class GameWorld {
 		
 		public GameWorld(Vector2 v2, boolean bool){
 			w = new World(v2, bool);
-			initializeTheSlope(4.0f, 6.4f, 3.75f, 6f);
+			initializeTheSlope(4.2f, 4.4f, 3.7f, 3.75f);
 			circleBody = addDynamicCircle(1f, 5f, .4f);
 			//addStaticRectangle(0f, 0.0f, 100f, .10f);
 
@@ -70,8 +70,8 @@ public class GameWorld {
 
 		Vector2 vertices[] = new Vector2[3];
 		vertices[0] = new Vector2(0, 0);
-		vertices[1] = new Vector2(width, 0);
-		vertices[2] = new Vector2(width, height);
+		vertices[1] = new Vector2(width * 11, 0);
+		vertices[2] = new Vector2(width * 11, height);
 		PolygonShape slope = new PolygonShape();
 		slope.set(vertices);
 		if(slopeFixture != null)
