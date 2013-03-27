@@ -26,7 +26,7 @@ public class WorldRenderer {
 		if(debug && w != null){
 			cam.position.set(w.getPenguin().getPosition().x, .5f ,0);
 			cam.update();
-			debugRenderer.render(w.getWorld(), cam.combined);
+			//debugRenderer.render(w.getWorld(), cam.combined);
 		}
 	}
 	
