@@ -27,7 +27,9 @@ public class GameWorld {
 	public int FISH_SCHOOL = 10;
 	public float BOX_TO_WORLD_WIDTH;//pixels per meter
 	public float BOX_TO_WORLD_HEIGHT;
-	public float slopeMuly = 0.62857142f;
+	private static float slopYMul = 0.5285714f;
+	private static float slopXMul = 0.35f;
+	private static float waterYMul = 0.35f;
 	
 	private World w;
 	private Body slopeBody,

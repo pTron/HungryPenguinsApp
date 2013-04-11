@@ -409,16 +409,18 @@ public class TiledMapHelper {
 	}
 	
 	public float getWaterLevel(){
+		int level = 0;
 		for (int y = 0; y < getMap().height; y++) {
 			for (int x = 0; x < getMap().width; x++) {
 				int tileType = getMap().layers.get(0).tiles[(getMap().height - 1)
 						- y][x];
 				if (tileType == 2 || tileType == 10 || tileType == 14 || tileType == 19) {
-					return y;
+					if (y > level)
+						level = y;
 				}
 			}
 		}
-		return 0;
+		return level;
 	}
 	
 	public int getslopeX(){
@@ -430,7 +432,7 @@ public class TiledMapHelper {
 				                                            - y][x];
 				if (tileType == 9 || tileType == 16) {
 					if (x > level)
-					level = x;
+						level = x;
 				}
 			}
 		}
@@ -446,7 +448,7 @@ public class TiledMapHelper {
 				                                            - y][x];
 				if (tileType == 9 || tileType == 16) {
 					if (y > level)
-					level = y;
+						level = y;
 				}
 			}
 		}
