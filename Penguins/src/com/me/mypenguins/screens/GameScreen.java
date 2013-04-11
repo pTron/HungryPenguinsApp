@@ -246,7 +246,7 @@ public class GameScreen implements Screen, InputProcessor{
 		Gdx.input.setInputProcessor(this);
 
 		tiledMapHelper = new TiledMapHelper();
-
+/*
 		tiledMapHelper = new TiledMapHelper();
 
 		if (mesh == null) {
@@ -260,7 +260,7 @@ public class GameScreen implements Screen, InputProcessor{
 			FileHandle imageFileHandle = Gdx.files.internal("ramp.png"); 
 			overallTexture = new Texture(imageFileHandle);
 		}
-
+*/
 		tiledMapHelper.setPackerDirectory("data/packer");
 
 		tiledMapHelper.loadMap("data/world/level1/level.tmx");

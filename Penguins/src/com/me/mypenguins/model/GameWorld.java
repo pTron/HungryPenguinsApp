@@ -300,7 +300,7 @@ public class GameWorld {
 		pSprite = new Sprite(texture);
 		pSprite.setSize(35, 35);
 		
-		texture = new Texture(Gdx.files.internal("epicFish.png"));
+		texture = new Texture(Gdx.files.internal("epicfish.png"));
 		texture.setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		
 		fSprite = new Sprite(texture);

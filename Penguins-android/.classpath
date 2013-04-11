@@ -8,5 +8,6 @@
 	<classpathentry exported="true" kind="lib" path="/Penguins/libs/gdx.jar" sourcepath="/Penguins/libs/gdx-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/gdx-backend-android.jar" sourcepath="libs/gdx-backend-android-sources.jar"/>
 	<classpathentry kind="lib" path="libs/robotium-solo-4.0.jar"/>
+	<classpathentry kind="lib" path="libs/bodyeditor-loader.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
