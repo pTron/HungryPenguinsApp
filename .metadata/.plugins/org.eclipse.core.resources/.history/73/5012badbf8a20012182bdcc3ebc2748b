@@ -30,8 +30,6 @@ public class GameWorld {
 	private static float slopYMul = 0.5285714f;
 	private static float slopXMul = 0.35f;
 	private static float waterYMul = 0.35f;
-	private Vector2 slopVect = new Vector2();
-	private float waterLevel;
 	
 	private World w;
 	private Body slopeBody,
@@ -58,7 +56,7 @@ public class GameWorld {
 	public GameWorld(){
 		w = new World(new Vector2(0, -.50f), true);
 		//w = new World(new Vector2(0, -5f), true);
-		//initializeTheSlope(4.20f, 4.40f, 3.70f, 3.75f);
+		initializeTheSlope(4.20f, 4.40f, 3.70f, 3.75f);
 		//createRamp(100, 200);
 		circleBody = addDynamicCircle(.06f, .10f, .04f);
 		setSprite();
@@ -72,11 +70,11 @@ public class GameWorld {
 	public GameWorld(Vector2 v2, boolean bool){
 		w = new World(v2, bool);
 		
-		//initializeTheSlope(4.2f, 4.4f, 3.7f, 3.75f);
+		initializeTheSlope(4.2f, 4.4f, 3.7f, 3.75f);
+		createCollisionListener();
 		
 		circleBody = addDynamicCircle(1f, 5f, .4f);
 		setSprite();
-		createCollisionListener();
 		
 		for(int i = 0; i < FISH_SCHOOL; i++)
 			fish[i] = addFish((10+i), 1.5f, .2f);
@@ -295,16 +293,6 @@ public class GameWorld {
 		return body;
 
 	}
-	
-	public void setSlope(int x, int y) {
-		
-		initializeTheSlope(x*slopXMul, x*slopXMul+0.2f, y*slopYMul, y*slopYMul+0.05f);
-	}
-	
-public void setWater(int y) {
-		waterLevel = y * waterYMul;
-	}
-	
 	public void setSprite(){
 		texture = new Texture(Gdx.files.internal("penguin_side.png"));
 		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);

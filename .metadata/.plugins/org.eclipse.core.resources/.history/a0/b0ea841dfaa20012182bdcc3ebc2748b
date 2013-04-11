@@ -273,8 +273,7 @@ public class GameScreen implements Screen, InputProcessor{
 				PIXELS_PER_METER);
 
 		//debugRenderer = new Box2DDebugRenderer();
-		w.setSlope(tiledMapHelper.getslopeX(), tiledMapHelper.getslopeY());
-		w.setWater(tiledMapHelper.getWaterLevel());
+
 		lastRender = System.nanoTime();
 	}
 

@@ -298,7 +298,7 @@ public class GameWorld {
 	
 	public void setSlope(int x, int y) {
 		
-		initializeTheSlope(x*slopXMul, x*slopXMul+0.2f, y*slopYMul, y*slopYMul+0.05f);
+		initializeTheSlope(x*slopXMul, 4.4f, y*slopYMul, 3.75f);
 	}
 	
 public void setWater(int y) {

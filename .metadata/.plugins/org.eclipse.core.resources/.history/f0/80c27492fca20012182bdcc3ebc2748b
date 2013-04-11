@@ -411,7 +411,7 @@ public class TiledMapHelper {
 				}
 			}
 		}
-		return (level+1);
+		return level;
 	}
 	
 	public int getslopeX(){
@@ -427,7 +427,7 @@ public class TiledMapHelper {
 				}
 			}
 		}
-		return (level+1);
+		return level;
 	}
 	
 	public int getslopeY(){
@@ -443,7 +443,7 @@ public class TiledMapHelper {
 				}
 			}
 		}
-		return (level+1);
+		return level;
 	}
 
 	private FileHandle packFileDirectory;

@@ -1,8 +1,7 @@
 package com.me.mypenguins.screens;
 
 /**
- * Thanks to David Kirchner dpk@dpk.net for his frame from the libgdx framework
- *   Copyright 2013 Aaron Horn superboringturtle@hotmail.com
+ *   Copyright 2011 David Kirchner dpk@dpk.net
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -16,6 +15,16 @@ package com.me.mypenguins.screens;
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  *   
+ * TiledMapHelper can simplify your game's tiled map operations. You can find
+ * some sample code using this class at my blog:
+ * 
+ * http://dpk.net/2011/05/08/libgdx-box2d-tiled-maps-full-working-example-part-2/
+ * 
+ * Note: This code does have some limitations. It only supports single-layered
+ * maps.
+ * 
+ * This code is based on TiledMapTest.java found at:
+ * http://code.google.com/p/libgdx/
  */
 
 import java.util.ArrayList;
@@ -399,7 +408,7 @@ public class TiledMapHelper {
 		}
 	}
 	
-	public int getWaterLevel(){
+	public float getWaterLevel(){
 		int level = 0;
 		for (int y = 0; y < getMap().height; y++) {
 			for (int x = 0; x < getMap().width; x++) {
@@ -411,7 +420,7 @@ public class TiledMapHelper {
 				}
 			}
 		}
-		return (level+1);
+		return level;
 	}
 	
 	public int getslopeX(){
@@ -427,7 +436,7 @@ public class TiledMapHelper {
 				}
 			}
 		}
-		return (level+1);
+		return level;
 	}
 	
 	public int getslopeY(){
@@ -443,7 +452,7 @@ public class TiledMapHelper {
 				}
 			}
 		}
-		return (level+1);
+		return level;
 	}
 
 	private FileHandle packFileDirectory;
