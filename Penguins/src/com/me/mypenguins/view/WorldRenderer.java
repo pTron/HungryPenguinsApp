@@ -27,7 +27,7 @@ public class WorldRenderer {
 	}
 	
 	public void render(int tile_width, int tile_height){
-		if(debug && w != null){
+		if(debug && w != null) {
 			    cam.position.x = w.getPenguin().getPosition().x;
 				if (cam.position.x < Gdx.graphics.getWidth() /TILE_SCALE_FACTOR / 2) {
 					cam.position.x = (float)Gdx.graphics.getWidth() / TILE_SCALE_FACTOR / 2;

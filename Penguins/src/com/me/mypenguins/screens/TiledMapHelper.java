@@ -42,7 +42,6 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.EdgeShape;
-import com.badlogic.gdx.physics.box2d.World;
 import com.me.mypenguins.model.GameWorld;
 
 public class TiledMapHelper {
@@ -407,6 +406,51 @@ public class TiledMapHelper {
 			return "[" + start.x + "x" + start.y + "] -> [" + end.x + "x"
 					+ end.y + "]";
 		}
+	}
+	
+	public float getWaterLevel(){
+		for (int y = 0; y < getMap().height; y++) {
+			for (int x = 0; x < getMap().width; x++) {
+				int tileType = getMap().layers.get(0).tiles[(getMap().height - 1)
+						- y][x];
+				if (tileType == 2 || tileType == 10 || tileType == 14 || tileType == 19) {
+					return y;
+				}
+			}
+		}
+		return 0;
+	}
+	
+	public int getslopeX(){
+		//int level = Integer.MAX_VALUE;
+		int level = 0;
+		for (int y = 0; y < getMap().height; y++) {
+			for (int x = 0; x < getMap().width; x++) {
+				int tileType = getMap().layers.get(0).tiles[(getMap().height - 1)
+				                                            - y][x];
+				if (tileType == 9 || tileType == 16) {
+					if (x > level)
+					level = x;
+				}
+			}
+		}
+		return level;
+	}
+	
+	public int getslopeY(){
+		//int level = Integer.MAX_VALUE;
+		int level = 0;
+		for (int y = 0; y < getMap().height; y++) {
+			for (int x = 0; x < getMap().width; x++) {
+				int tileType = getMap().layers.get(0).tiles[(getMap().height - 1)
+				                                            - y][x];
+				if (tileType == 9 || tileType == 16) {
+					if (y > level)
+					level = y;
+				}
+			}
+		}
+		return level;
 	}
 
 	private FileHandle packFileDirectory;
